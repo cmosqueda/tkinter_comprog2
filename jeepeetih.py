@@ -158,48 +158,110 @@
 
 # root.mainloop()
 
+# import tkinter as tk
+
+# def on_enter(event):
+
+#     btn = event.widget
+#     # Change the button color when the mouse enters
+#     if btn == button1:
+#         button1.config(bg="red", fg="white")
+#     elif btn == button2:
+#         button2.config(bg='blue', fg='white')
+#     else:
+#         print('null')
+
+# def on_leave(event):
+
+#     btn = event.widget
+#     # Change the button color when the mouse leaves
+#     if btn == button1:
+#         button1.config(bg="SystemButtonFace", fg="black")
+#     elif btn == button2:
+#         button2.config(bg="SystemButtonFace", fg="black")
+#     else:
+#         print('null')
+
+
+# root = tk.Tk()
+
+# # Create a button
+# button1 = tk.Button(root, text="Hover Me!")
+
+# # Bind the functions to the button's events
+# button1.bind("<Enter>", on_enter)
+# button1.bind("<Leave>", on_leave)
+
+# button1.pack()
+
+# button2 = tk.Button(root, text='Hover Me!')
+
+# button2.bind("<Enter>", on_enter)
+# button2.bind("<Leave>", on_leave)
+
+# button2.pack()
+
+
+# root.mainloop()
+
+
 import tkinter as tk
-
-def on_enter(event):
-
-    btn = event.widget
-    # Change the button color when the mouse enters
-    if btn == button1:
-        button1.config(bg="red", fg="white")
-    elif btn == button2:
-        button2.config(bg='blue', fg='white')
-    else:
-        print('null')
-
-def on_leave(event):
-
-    btn = event.widget
-    # Change the button color when the mouse leaves
-    if btn == button1:
-        button1.config(bg="SystemButtonFace", fg="black")
-    elif btn == button2:
-        button2.config(bg="SystemButtonFace", fg="black")
-    else:
-        print('null')
-
+from tkinter import ttk
 
 root = tk.Tk()
+root.title("Notebook with Scrollbar")
 
-# Create a button
-button1 = tk.Button(root, text="Hover Me!")
+notebook = ttk.Notebook(root)
+notebook.pack(fill=tk.BOTH, expand=True)
 
-# Bind the functions to the button's events
-button1.bind("<Enter>", on_enter)
-button1.bind("<Leave>", on_leave)
+# Create a frame inside the notebook
+frame = ttk.Frame(notebook)
+notebook.add(frame, text="Canvas")
 
-button1.pack()
+# Create a canvas widget inside the frame
+canvas = tk.Canvas(frame)
+canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-button2 = tk.Button(root, text='Hover Me!')
+# Create a scrollbar widget
+scrollbar = tk.Scrollbar(frame, command=canvas.yview)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-button2.bind("<Enter>", on_enter)
-button2.bind("<Leave>", on_leave)
+# Configure the canvas to use the scrollbar
+canvas.configure(yscrollcommand=scrollbar.set)
 
-button2.pack()
+# Create a frame inside the canvas to hold the content
+content_frame = ttk.Frame(canvas)
+canvas.create_window((0, 0), window=content_frame, anchor=tk.NW)
 
+# Add widgets to the content frame
+label1 = ttk.Label(content_frame, text="Label 1")
+label1.pack(pady=10)
+
+label2 = ttk.Label(content_frame, text="Label 2")
+label2.pack(pady=10)
+
+label3 = ttk.Label(content_frame, text="Label 3")
+label3.pack(pady=10)
+
+label4 = ttk.Label(content_frame, text="Label 4")
+label4.pack(pady=10)
+
+label5 = ttk.Label(content_frame, text="Label 5")
+label5.pack(pady=10)
+
+label6 = ttk.Label(content_frame, text="Label 6")
+label6.pack(pady=10)
+
+label7 = ttk.Label(content_frame, text="Label 7")
+label7.pack(pady=10)
+
+label8 = ttk.Label(content_frame, text="Label 8")
+label8.pack(pady=10)
+
+# Configure the canvas to scroll with the scrollbar
+def on_canvas_configure(event):
+    canvas.configure(scrollregion=canvas.bbox("all"))
+
+canvas.bind("<Configure>", on_canvas_configure)
 
 root.mainloop()
