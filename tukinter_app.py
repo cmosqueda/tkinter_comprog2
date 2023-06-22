@@ -387,8 +387,11 @@ class Application:
 
         self.topic1noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
-        Label(self.topic1tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic1tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        # Label(self.topic1tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
+        # Label(self.topic1tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+
+        self.topic1tab1Canvas = Canvas(self.topic1tab1)
+        
 
 
 
