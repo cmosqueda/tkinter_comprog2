@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-# from PIL import ImageTk, Image
+# from PIL import Image
 
 class Application:
     def __init__(self, main):
@@ -387,11 +387,26 @@ class Application:
 
         self.topic1noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
-        # Label(self.topic1tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        # Label(self.topic1tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic1tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic1tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
 
-        self.topic1tab1Canvas = Canvas(self.topic1tab1)
-        
+        #create topic 1 canvas
+        # self.topic1tab1Canvas = Canvas(self.topic1tab1)
+        # self.topic1tab1Canvas.grid(row=0, column=0, columnspan=7, rowspan=10)
+
+        # #create scrollbar for topic 1 canvas
+        # self.topic1tab1Scroll = Scrollbar(self.topic1noteBook, orient=VERTICAL, command=self.topic1tab1Canvas.yview)
+        # self.topic1tab1Scroll.grid(row=0, column=1, sticky='ns')
+
+        # #configure canvas to use scrollbar widget
+        # self.topic1tab1Canvas.configure(yscrollcommand=self.topic1tab1Scroll.set)
+
+        # self.topic1tab1ContentFrame = Frame(self.topic1tab1Canvas)
+        # self.topic1tab1ContentFrame.create_window((0,0), window=self.topic1tab1ContentFrame, anchor='nw')
+
+        # # naa pasy sayop diri, debug ko later
+        # Label(self.topic1tab1ContentFrame, text='This is tab 1', width=67, height=16).pack()
+        # # Label(self.topic1tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
 
 
 

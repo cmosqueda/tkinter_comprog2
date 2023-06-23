@@ -265,3 +265,117 @@ def on_canvas_configure(event):
 canvas.bind("<Configure>", on_canvas_configure)
 
 root.mainloop()
+
+
+# import tkinter as tk
+# from tkinter import ttk
+
+# root = tk.Tk()
+# root.title("Notebook with Scrollbar")
+
+# notebook = ttk.Notebook(root)
+# notebook.grid(row=0, column=0, sticky="nsew")
+
+# # Create a frame inside the notebook
+# frame = ttk.Frame(notebook)
+# notebook.add(frame, text="Canvas")
+
+# # Create a canvas widget inside the frame
+# canvas = tk.Canvas(frame)
+# canvas.grid(row=0, column=0, sticky="nsew")
+
+# # Create a scrollbar widget
+# scrollbar = tk.Scrollbar(frame, orient=tk.VERTICAL, command=canvas.yview)
+# scrollbar.grid(row=0, column=1, sticky="ns")
+
+# # Configure the canvas to use the scrollbar
+# canvas.configure(yscrollcommand=scrollbar.set)
+
+# # Create a frame inside the canvas to hold the content
+# content_frame = ttk.Frame(canvas)
+# canvas.create_window((0, 0), window=content_frame, anchor="nw")
+
+# # Add widgets to the content frame
+# label1 = ttk.Label(content_frame, text="Label 1")
+# label1.pack(pady=10)
+
+# label2 = ttk.Label(content_frame, text="Label 2")
+# label2.pack(pady=10)
+
+# label3 = ttk.Label(content_frame, text="Label 3")
+# label3.pack(pady=10)
+
+# # Configure the canvas and content frame for scrolling
+# def on_canvas_configure(event):
+#     canvas.configure(scrollregion=canvas.bbox("all"))
+
+# canvas.bind("<Configure>", on_canvas_configure)
+
+# # Configure the grid weights for resizing
+# root.grid_rowconfigure(0, weight=1)
+# root.grid_columnconfigure(0, weight=1)
+# frame.grid_rowconfigure(0, weight=1)
+# frame.grid_columnconfigure(0, weight=1)
+
+# root.mainloop()
+
+
+
+
+# import tkinter as tk
+# from tkinter import ttk
+
+# def activate_scrollbar(event):
+#     scrollbar.set(*canvas.yview())
+
+# def deactivate_scrollbar(event):
+#     scrollbar.set(0, 1)
+
+# root = tk.Tk()
+# root.title("Scrollbar Activation Example")
+
+# notebook = ttk.Notebook(root)
+# notebook.pack(fill=tk.BOTH, expand=True)
+
+# frame = ttk.Frame(notebook)
+# notebook.add(frame, text="Canvas")
+
+# canvas = tk.Canvas(frame)
+# canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+# scrollbar = tk.Scrollbar(frame, command=canvas.yview)
+# scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+# canvas.configure(yscrollcommand=scrollbar.set)
+
+# content_frame = ttk.Frame(canvas)
+# canvas.create_window((0, 0), window=content_frame, anchor=tk.NW)
+
+# label1 = ttk.Label(content_frame, text="Label 1")
+# label1.pack(pady=10)
+
+# label2 = ttk.Label(content_frame, text="Label 2")
+# label2.pack(pady=10)
+
+# label3 = ttk.Label(content_frame, text="Label 3")
+# label3.pack(pady=10)
+
+# label4 = ttk.Label(content_frame, text="Label 4")
+# label4.pack(pady=10)
+
+# label5 = ttk.Label(content_frame, text="Label 5")
+# label5.pack(pady=10)
+
+# label6 = ttk.Label(content_frame, text="Label 6")
+# label6.pack(pady=10)
+
+# label7 = ttk.Label(content_frame, text="Label 7")
+# label7.pack(pady=10)
+
+# label8 = ttk.Label(content_frame, text="Label 8")
+# label8.pack(pady=10)
+
+# frame.bind("<Enter>", activate_scrollbar)
+# frame.bind("<Leave>", deactivate_scrollbar)
+
+# root.mainloop()
