@@ -1,6 +1,25 @@
 from tkinter import *
 from tkinter import ttk
-# from PIL import Image
+from PIL import Image, ImageTk
+
+#import separate py files to run for code snippets
+import topic0_snip
+import topic1_snip
+import topic2_snip
+import topic3_snip
+import topic4_snip
+import topic5_snip
+import topic6_snip
+import topic7_snip
+import topic8_snip
+import topic9_snip
+import topic10_snip
+import topic11_snip
+import topic12_snip
+
+import topic14_snip
+import topic15_snip
+
 
 class Application:
     def __init__(self, main):
@@ -26,8 +45,8 @@ class Application:
         self.actionMenu = Menu(self.menuBar, tearoff=0)
         self.actionMenu.add_command(label='Go to topics', command=lambda: self.showFrame(self.topicsFrame))
         self.actionMenu.add_command(label='Youtube tutorials', command=0)
-        self.actionMenu.add_command(label='Website resources', command=0)
-        self.actionMenu.add_command(label='IDE recommendations', command=0)
+        # self.actionMenu.add_command(label='Website resources', command=0)
+        # self.actionMenu.add_command(label='IDE recommendations', command=0)
         self.actionMenu.add_separator()
         self.actionMenu.add_command(label='Go back', command=lambda: self.showFrame(self.welcomeFrame))
 
@@ -46,18 +65,27 @@ class Application:
 
         #insert logo here
 
+        self.tukinterLogo = Image.open('tukinter_text_logo.png')
+        self.resizedLogo = self.tukinterLogo.resize((200, 120))
+
+        self.tukinter_logo_img = ImageTk.PhotoImage(self.resizedLogo)
+
+        self.tukinterWelcomeLogo = Label(self.welcomeFrame, image=self.tukinter_logo_img)
+
+        self.tukinterWelcomeLogo.grid(row=0, column=1, columnspan=6, pady=15, sticky='nsew')
+
 
         self.welcomeTitle = Label(self.welcomeFrame,
                                     text='Welcome to TUkinter!',
                                     font=('Helvetica, 15'))
-        self.welcomeTitle.grid(row=0, column=1, columnspan=6, pady=50, sticky='nsew')
+        self.welcomeTitle.grid(row=1, column=1, columnspan=6, sticky='nsew')
         
 
         self.welcomeText = Label(self.welcomeFrame,
-                                    text="TUkinter is a simple tutorial application for tkinter that is designed using pythons tkinter library. The contents of this tutorial application will likely focus on covering the basics of using tkinter for GUI development. This project will come handy especially to beginners who are learning tkinter for the first time, as well as instructors teaching python's tkinter.", 
+                                    text="TUkinter is a simple tutorial application for tkinter that is designed using python's tkinter library. The contents of this tutorial application will likely focus on covering the basics of using tkinter for GUI development. This project will come handy especially to beginners who are learning tkinter for the first time, as well as instructors teaching python's tkinter.", 
                                     wraplength=480,
                                     font=('Helvetica', '9'))
-        self.welcomeText.grid(row=1, column=1, columnspan=6, padx=20, pady=10, sticky='n')
+        self.welcomeText.grid(row=2, column=1, columnspan=6, padx=20, pady=10, sticky='n')
 
 
         ############### TOPICS FRAME ###############
@@ -79,11 +107,9 @@ class Application:
 
         #create topic values
         self.topics = ['Getting started with Tkinter',
-                        'Geometry Managers',
                         'Geometry Managers: Pack Layout',
                         'Geometry Managers: Grid Layout',
                         'Geometry Managers: Place Layout',
-                        'Widgets',
                         'Label widget',
                         'Button widget',
                         'Entry widget',
@@ -104,7 +130,7 @@ class Application:
         # print(self.topics[0])   #getting started with tkinter
 
 
-        #create view button
+        #create view topic button
         self.viewTopicBtn = Button(self.topicsFrame,
                                     text='View topic',
                                     font=('Helvetica', '10'),
@@ -154,56 +180,50 @@ class Application:
             if val == 'Getting started with Tkinter':
                 self.topic0Frame.grid(row=0, column=0)      #GETTING STARTED WITH TKINTER
                 print('Getting started with Tkinter')
-            elif val == 'Geometry Managers':
-                self.topic1Frame.grid(row=0, column=0)    #GEOMETRY MANAGERS
-                print('Geometry Managers')
             elif val == 'Geometry Managers: Pack Layout':
-                self.topic2Frame.grid(row=0, column=0)      #GEOMERTY MANAGER: PACK LAYOUT
+                self.topic1Frame.grid(row=0, column=0)      #GEOMERTY MANAGER: PACK LAYOUT
                 print('Geometry Managers: Pack Layout')
             elif val == 'Geometry Managers: Grid Layout':
-                self.topic3Frame.grid(row=0, column=0)      #GEOMETRY MANAGER: GRID LAYOUT
+                self.topic2Frame.grid(row=0, column=0)      #GEOMETRY MANAGER: GRID LAYOUT
                 print('Geometry Managers: Grid Layout')
             elif val == 'Geometry Managers: Place Layout':
-                self.topic4Frame.grid(row=0, column=0)      #GEOMETRY MANAGER: PLACE LAYOUT
+                self.topic3Frame.grid(row=0, column=0)      #GEOMETRY MANAGER: PLACE LAYOUT
                 print('Geometry Managers: Place Layout')
-            elif val == 'Widgets':
-                self.topic5Frame.grid(row=0, column=0)      #WIDGETS
-                print('Widgets')
             elif val == 'Label widget':
-                self.topic6Frame.grid(row=0, column=0)      #LABEL WIDGET
+                self.topic4Frame.grid(row=0, column=0)      #LABEL WIDGET
                 print('Label widget')
             elif val == 'Button widget':
-                self.topic7Frame.grid(row=0, column=0)      #BUTTON WIDGET
+                self.topic5Frame.grid(row=0, column=0)      #BUTTON WIDGET
                 print('Button widget')
             elif val == 'Entry widget':
-                self.topic8Frame.grid(row=0, column=0)      #ENTRY WIDGET
+                self.topic6Frame.grid(row=0, column=0)      #ENTRY WIDGET
                 print('Entry widget')
             elif val == 'Frame widget':
-                self.topic9Frame.grid(row=0, column=0)      #FRAME WIDGET
+                self.topic7Frame.grid(row=0, column=0)      #FRAME WIDGET
                 print('Frame widget')
             elif val == 'Canvas widget':
-                self.topic10Frame.grid(row=0, column=0)     #CANVAS WIDGET
+                self.topic8Frame.grid(row=0, column=0)     #CANVAS WIDGET
                 print('Canvas widget')
             elif val == 'Menu widget':
-                self.topic11Frame.grid(row=0, column=0)     #MENU WIDGET
+                self.topic9Frame.grid(row=0, column=0)     #MENU WIDGET
                 print('Menu widget')
             elif val == 'Listbox widget':
-                self.topic12Frame.grid(row=0, column=0)     #LISTBOX WIDGET
+                self.topic10Frame.grid(row=0, column=0)     #LISTBOX WIDGET
                 print('Listbox widget')
             elif val == 'Scrollbar widget':
-                self.topic13Frame.grid(row=0, column=0)     #SCROLLBAR WIDGET
+                self.topic11Frame.grid(row=0, column=0)     #SCROLLBAR WIDGET
                 print('Scrollbar widget')
             elif val == 'Notebook widget':
-                self.topic14Frame.grid(row=0, column=0)     #NOTEBOOK WIDGET
+                self.topic12Frame.grid(row=0, column=0)     #NOTEBOOK WIDGET
                 print('Notebook widget')
             elif val == 'File I/O':
-                self.topic15Frame.grid(row=0, column=0)     #FILE I/O
+                self.topic13Frame.grid(row=0, column=0)     #FILE I/O
                 print('File I/O')
             elif val == 'A simple employee data managemet system':
-                self.topic16Frame.grid(row=0, column=0)             #'A simple employee data managemet system'
+                self.topic14Frame.grid(row=0, column=0)             #'A simple employee data managemet system'
                 print('A simple employee data managemet system')
             elif val == 'A simple calculator application':
-                self.topic17Frame.grid(row=0, column=0)
+                self.topic15Frame.grid(row=0, column=0)
                 print('A simple calculator application')
             else:
                 print('Null')
@@ -232,8 +252,6 @@ class Application:
             self.goBackBtn6.config(bg='#2688ED', fg='white')
         elif self.btn == self.goBackBtn7:
             self.goBackBtn7.config(bg='#2688ED', fg='white')
-        elif self.btn == self.goBackBtn7:
-            self.goBackBtn7.config(bg='#2688ED', fg='white')
         elif self.btn == self.goBackBtn8:
             self.goBackBtn8.config(bg='#2688ED', fg='white')
         elif self.btn == self.goBackBtn9:
@@ -250,10 +268,6 @@ class Application:
             self.goBackBtn14.config(bg='#2688ED', fg='white')
         elif self.btn == self.goBackBtn15:
             self.goBackBtn15.config(bg='#2688ED', fg='white')
-        elif self.btn == self.goBackBtn16:
-            self.goBackBtn16.config(bg='#2688ED', fg='white')
-        elif self.btn == self.goBackBtn17:
-            self.goBackBtn17.config(bg='#2688ED', fg='white')
         else:
             print('null')
 
@@ -270,7 +284,7 @@ class Application:
         elif self.btn == self.goBackBtn2:
             self.goBackBtn2.config(bg='SystemButtonFace', fg='black')
         elif self.btn == self.goBackBtn3:
-            self.goBackBtn4.config(bg='SystemButtonFace', fg='black')
+            self.goBackBtn3.config(bg='SystemButtonFace', fg='black')
         elif self.btn == self.goBackBtn4:
             self.goBackBtn4.config(bg='SystemButtonFace', fg='black')
         elif self.btn == self.goBackBtn5:
@@ -295,10 +309,6 @@ class Application:
             self.goBackBtn14.config(bg='SystemButtonFace', fg='black')
         elif self.btn == self.goBackBtn15:
             self.goBackBtn15.config(bg='SystemButtonFace', fg='black')
-        elif self.btn == self.goBackBtn16:
-            self.goBackBtn16.config(bg='SystemButtonFace', fg='black')
-        elif self.btn == self.goBackBtn17:
-            self.goBackBtn17.config(bg='SystemButtonFace', fg='black')
         else:
             print('null')
 
@@ -338,59 +348,63 @@ class Application:
         self.topic0noteBook.add(self.topic0tab2, text='Sample Code Snippet')
 
         self.topic0noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
+        # self.topic0noteBook.pack(fill='both', expand=True)
 
-        Label(self.topic0tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic0tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        # Label(self.topic0tab1, text='What is Tkinter?').grid(row=0, column=0)
+
+        #magbutang tag canvas diri
+
+        #NABUTANG RAGYUD PISTEEEE AAAAAA, OKAY MAGTIWAS TA ANI SA ELIB
+        #create canvas
+        self.topic0tab1Canvas = Canvas(self.topic0tab1)
+        self.topic0tab1Canvas.grid(row=0, column=0, sticky='nsew', ipadx=40)
+
+        #create scrollbar
+        self.topic0tab1Scroll = Scrollbar(self.topic0tab1, orient=VERTICAL, command=self.topic0tab1Canvas.yview)
+        self.topic0tab1Scroll.grid(row=0, column=1, sticky='w')
+
+        #configure canvas
+        self.topic0tab1Canvas.configure(yscrollcommand=self.topic0tab1Scroll.set)
+        self.topic0tab1Canvas.bind('<Configure>', lambda e: self.topic0tab1Canvas.configure(scrollregion=self.topic0tab1Canvas.bbox('all')))
+
+        #create another frame inside the canvas
+        self.topic0tab1secondFrame = Frame(self.topic0tab1Canvas)
+
+        #add the new frame to a window in the canvas
+        self.topic0tab1Canvas.create_window((0,0), window=self.topic0tab1secondFrame, anchor='nw')
 
 
-        # self.topic0TextWidget = Text(self.topic0Frame,
-        #                                 font=('Helvetica', '10'),
-        #                                 state='normal')
-        # self.topic0TextWidget.grid(row=0, column=0, columnspan=7)
+        Label(self.topic0tab2, text='Code snippet to run a simple "Hello World" program in Tkinter GUI.').grid(row=0, column=0, columnspan=7)
+        
+        #create text widget to display code snippet
+        self.topic0TxtWidget = Text(self.topic0tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic0TxtWidget.grid(row=1, column=0, sticky='nsew')
 
-        # self.topic0text0 = 'This is topic 1. Lorem ipsum dolor sit amet adipscing consectitur.\n'
 
-        # self.topic0TextWidget.insert(END, self.topic0text0+self.topic0text0+self.topic0text0+self.topic0text0+self.topic0text0+self.topic0text0+self.topic0text0+self.topic0text0)
+        with open('topic0_snippet.txt') as topic0:
+            self.topic0snipTxt = topic0.read()
+            # print(self.topic0snipTxt)
+        
 
-        # self.topic0TextWidget.config(state='disabled', height=20, width=60, wrap='word')
+        self.topic0TxtWidget.insert(END, self.topic0snipTxt)
+        self.topic0TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic0tab2RunBtn = Button(self.topic0tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 0'))
+        self.topic0tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+
+
+        # self.topic0tab2.grid_rowconfigure(0, weight=1)
+        # self.topic0tab2.grid_columnconfigure(0, weight=1)
 
         
 
-
-        ############### GEOMETRY MANAGERS ###############
-        #self.topic1Frame = 'GEOMETRY MANAGERS'
-        self.topic1Frame = Frame(self.main)
-        # self.topic1Frame.grid(row=0, column=0, columnspan=7, rowspan=10)
-
-
-        self.goBackBtn1 = Button(self.topic1Frame,
-                                    text='Back to topics',
-                                    command=lambda: self.showFrame(self.topicsFrame))
-        self.goBackBtn1.bind('<Enter>', self.btn_on_enter)
-        self.goBackBtn1.bind('<Leave>', self.btn_on_leave)
-        self.goBackBtn1.grid(row=0, column=0, columnspan=2, ipadx=5, padx=5, pady=7)
-
-
-        self.topic1FrameTitle = Label(self.topic1Frame,
-                                        text='Geometry Managers',
-                                        font=('Helvetica', '12'))
-        self.topic1FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
-
-        #create notebook widget
-        self.topic1noteBook = ttk.Notebook(self.topic1Frame)
-
-        self.topic1tab1 = Frame(self.topic1noteBook)
-        self.topic1tab2 = Frame(self.topic1noteBook)
-
-        self.topic1noteBook.add(self.topic1tab1, text='Topic')
-        self.topic1noteBook.add(self.topic1tab2, text='Sample Code Snippet')
-
-        self.topic1noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
-
-        Label(self.topic1tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic1tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
-
-        #create topic 1 canvas
+        # create topic 1 canvas
         # self.topic1tab1Canvas = Canvas(self.topic1tab1)
         # self.topic1tab1Canvas.grid(row=0, column=0, columnspan=7, rowspan=10)
 
@@ -411,7 +425,62 @@ class Application:
 
 
         ############### GEOMETRY MANAGERS: PACK LAYOUT ###############
-        # self.topic2Frame = 'GEOMETRY MANAGERS: PACK LAYOUT'
+        # self.topic1Frame = 'GEOMETRY MANAGERS: PACK LAYOUT'
+        self.topic1Frame = Frame(self.main)
+        # self.topic1Frame.grid(row=0, column=0)
+
+
+        self.goBackBtn1 = Button(self.topic1Frame,
+                                    text='Back to topics',
+                                    command=lambda: self.showFrame(self.topicsFrame))
+        self.goBackBtn1.bind('<Enter>', self.btn_on_enter)
+        self.goBackBtn1.bind('<Leave>', self.btn_on_leave)
+        self.goBackBtn1.grid(row=0, column=0, columnspan=2, ipadx=5, padx=5, pady=7)
+
+
+        self.topic1FrameTitle = Label(self.topic1Frame,
+                                        text='Geometry Managers: Pack Layout',
+                                        font=('Helvetica', '12'))
+        self.topic1FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
+
+        #create notebook widget
+        self.topic1noteBook = ttk.Notebook(self.topic1Frame)
+
+        self.topic1tab1 = Frame(self.topic1noteBook)
+        self.topic1tab2 = Frame(self.topic1noteBook)
+
+        self.topic1noteBook.add(self.topic1tab1, text='Topic')
+        self.topic1noteBook.add(self.topic1tab2, text='Sample Code Snippet')
+
+        self.topic1noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
+
+        Label(self.topic1tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic1tab2, text='"Pack" Geometry Manager sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic1TxtWidget = Text(self.topic1tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic1TxtWidget.grid(row=1, column=0, sticky='nsew')
+
+
+        with open('topic1_snippet.txt') as topic1:
+            self.topic1snipTxt = topic1.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic1TxtWidget.insert(END, self.topic1snipTxt)
+        self.topic1TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic1tab2RunBtn = Button(self.topic1tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 1'))
+        self.topic1tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+
+        ############### GEOMETRY MANAGERS: GRID LAYOUT ###############
+        #self.topic2Frame = 'GEOMETRY MANAGERS: GRID LAYOUT'
         self.topic2Frame = Frame(self.main)
         # self.topic2Frame.grid(row=0, column=0)
 
@@ -425,7 +494,7 @@ class Application:
 
 
         self.topic2FrameTitle = Label(self.topic2Frame,
-                                        text='Geometry Managers: Pack Layout',
+                                        text='Geometry Managers: Grid Layout',
                                         font=('Helvetica', '12'))
         self.topic2FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -441,12 +510,32 @@ class Application:
         self.topic2noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic2tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic2tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic2tab2, text='"Grid" Geometry Manager sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic2TxtWidget = Text(self.topic2tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic2TxtWidget.grid(row=1, column=0, sticky='nsew')
+
+
+        with open('topic2_snippet.txt') as topic2:
+            self.topic2snipTxt = topic2.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic2TxtWidget.insert(END, self.topic2snipTxt)
+        self.topic2TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic2tab2RunBtn = Button(self.topic2tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 2'))
+        self.topic2tab2RunBtn.grid(row=2, column=0, sticky='nsew')
 
 
 
-        ############### GEOMETRY MANAGERS: GRID LAYOUT ###############
-        #self.topic3Frame = 'GEOMETRY MANAGERS: GRID LAYOUT'
+        ############### GEOMETRY MANAGERS: PLACE LAYOUT ###############
+        # self.topic3Frame = 'GEOMETRY MANAGERS: PLACE LAYOUT'
         self.topic3Frame = Frame(self.main)
         # self.topic3Frame.grid(row=0, column=0)
 
@@ -455,12 +544,12 @@ class Application:
                                     text='Back to topics',
                                     command=lambda: self.showFrame(self.topicsFrame))
         self.goBackBtn3.bind('<Enter>', self.btn_on_enter)
-        self.goBackBtn3.bind('<Leave>', self.btn_on_leave)
+        self.goBackBtn3.bind('<Leave>', self.btn_on_leave)                                    
         self.goBackBtn3.grid(row=0, column=0, columnspan=2, ipadx=5, padx=5, pady=7)
 
 
         self.topic3FrameTitle = Label(self.topic3Frame,
-                                        text='Geometry Managers: Grid Layout',
+                                        text='Geometry Managers: Place Layout',
                                         font=('Helvetica', '12'))
         self.topic3FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -476,12 +565,37 @@ class Application:
         self.topic3noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic3tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic3tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic3tab2, text='"Place" Geometry Manager code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic3TxtWidget = Text(self.topic3tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic3TxtWidget.grid(row=1, column=0, sticky='nsew')
+
+
+        with open('topic3_snippet.txt') as topic3:
+            self.topic3snipTxt = topic3.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic3TxtWidget.insert(END, self.topic3snipTxt)
+        self.topic3TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic3tab2RunBtn = Button(self.topic3tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 3'))
+        self.topic3tab2RunBtn.grid(row=2, column=0, sticky='nsew')
 
 
 
-        ############### GEOMETRY MANAGERS: PLACE LAYOUT ###############
-        # self.topic4Frame = 'GEOMETRY MANAGERS: PLACE LAYOUT'
+        ############### WIDGETS ###############
+        # GI WALA NA ANG WIDGETS
+
+
+
+        ############### LABEL WIDGET ###############
+        # self.topic4Frame = 'LABEL WIDGET'
         self.topic4Frame = Frame(self.main)
         # self.topic4Frame.grid(row=0, column=0)
 
@@ -495,7 +609,7 @@ class Application:
 
 
         self.topic4FrameTitle = Label(self.topic4Frame,
-                                        text='Geometry Managers: Place Layout',
+                                        text='Label widget',
                                         font=('Helvetica', '12'))
         self.topic4FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -511,12 +625,32 @@ class Application:
         self.topic4noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic4tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic4tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic4tab2, text='"Label" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic4TxtWidget = Text(self.topic4tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic4TxtWidget.grid(row=1, column=0, sticky='nsew')
+
+
+        with open('topic4_snippet.txt') as topic4:
+            self.topic4snipTxt = topic4.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic4TxtWidget.insert(END, self.topic4snipTxt)
+        self.topic4TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic4tab2RunBtn = Button(self.topic4tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 4'))
+        self.topic4tab2RunBtn.grid(row=2, column=0, sticky='nsew')
 
 
 
-        ############### WIDGETS ###############
-        # self.topic5Frame = 'WIDGETS'
+        ############### BUTTON WIDGET ###############
+        # self.topic5Frame = 'BUTTON WIDGET'
         self.topic5Frame = Frame(self.main)
         # self.topic5Frame.grid(row=0, column=0)
 
@@ -530,7 +664,7 @@ class Application:
 
 
         self.topic5FrameTitle = Label(self.topic5Frame,
-                                        text='Widgets',
+                                        text='Button widget',
                                         font=('Helvetica', '12'))
         self.topic5FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -546,12 +680,31 @@ class Application:
         self.topic5noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic5tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic5tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic5tab2, text='"Button" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic5TxtWidget = Text(self.topic5tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic5TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
+        with open('topic5_snippet.txt') as topic5:
+            self.topic5snipTxt = topic5.read()
+            # print(self.topic0snipTxt)
+        
 
-        ############### LABEL WIDGET ###############
-        # self.topic6Frame = 'WIDGET'
+        self.topic5TxtWidget.insert(END, self.topic5snipTxt)
+        self.topic5TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic5tab2RunBtn = Button(self.topic5tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 5'))
+        self.topic5tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+        ############### ENTRY WIDGET ###############
+        # self.topic6Frame = 'ENTRY WIDGET'
         self.topic6Frame = Frame(self.main)
         # self.topic6Frame.grid(row=0, column=0)
 
@@ -565,7 +718,7 @@ class Application:
 
 
         self.topic6FrameTitle = Label(self.topic6Frame,
-                                        text='Label widget',
+                                        text='Entry widget',
                                         font=('Helvetica', '12'))
         self.topic6FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -581,12 +734,32 @@ class Application:
         self.topic6noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic6tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic6tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic6tab2, text='"Entry" widget sample code snippet').grid(row=0, column=0, columnspan=7)
 
 
+        #create text widget to display code snippet
+        self.topic6TxtWidget = Text(self.topic6tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic6TxtWidget.grid(row=1, column=0, sticky='nsew')
 
-        ############### BUTTON WIDGET ###############
-        # self.topic7Frame = 'BUTTON WIDGET'
+
+        with open('topic6_snippet.txt') as topic6:
+            self.topic6snipTxt = topic6.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic6TxtWidget.insert(END, self.topic6snipTxt)
+        self.topic6TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic6tab2RunBtn = Button(self.topic6tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 6'))
+        self.topic6tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+        ############### FRAME WIDGET ###############
+        # self.topic7Frame = 'FRAME WIDGET'
         self.topic7Frame = Frame(self.main)
         # self.topic7Frame.grid(row=0, column=0)
 
@@ -600,7 +773,7 @@ class Application:
 
 
         self.topic7FrameTitle = Label(self.topic7Frame,
-                                        text='Button widget',
+                                        text='Frame widget',
                                         font=('Helvetica', '12'))
         self.topic7FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -616,11 +789,31 @@ class Application:
         self.topic7noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic7tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic7tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic7tab2, text='"Frame" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic7TxtWidget = Text(self.topic7tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic7TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
-        ############### ENTRY WIDGET ###############
-        # self.topic8Frame = 'ENTRY WIDGET'
+        with open('topic7_snippet.txt') as topic7:
+            self.topic7snipTxt = topic7.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic7TxtWidget.insert(END, self.topic7snipTxt)
+        self.topic7TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic7tab2RunBtn = Button(self.topic7tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 7'))
+        self.topic7tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+        ############### CANVAS WIDGET ###############
+        # self.topic8Frame = 'CANVAS WIDGET'
         self.topic8Frame = Frame(self.main)
         # self.topic8Frame.grid(row=0, column=0)
 
@@ -634,7 +827,7 @@ class Application:
 
 
         self.topic8FrameTitle = Label(self.topic8Frame,
-                                        text='Entry widget',
+                                        text='Canvas widget',
                                         font=('Helvetica', '12'))
         self.topic8FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -650,12 +843,32 @@ class Application:
         self.topic8noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic8tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic8tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic8tab2, text='"Canvas" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic8TxtWidget = Text(self.topic8tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic8TxtWidget.grid(row=1, column=0, sticky='nsew')
+
+
+        with open('topic8_snippet.txt') as topic8:
+            self.topic8snipTxt = topic8.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic8TxtWidget.insert(END, self.topic8snipTxt)
+        self.topic8TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic8tab2RunBtn = Button(self.topic8tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 8'))
+        self.topic8tab2RunBtn.grid(row=2, column=0, sticky='nsew')
 
 
 
-        ############### FRAME WIDGET ###############
-        # self.topic9Frame = 'FRAME WIDGET'
+        ############### MENU WIDGET ###############
+        # self.topic9Frame = 'MENU WIDGET'
         self.topic9Frame = Frame(self.main)
         # self.topic9Frame.grid(row=0, column=0)
 
@@ -669,7 +882,7 @@ class Application:
 
 
         self.topic9FrameTitle = Label(self.topic9Frame,
-                                        text='Frame widget',
+                                        text='Menu widget',
                                         font=('Helvetica', '12'))
         self.topic9FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -685,12 +898,45 @@ class Application:
         self.topic9noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic9tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic9tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic9tab2, text='"Menu" widget sample code snippet', width=67, height=16).grid(row=0, column=0)
+
+        #create notebook widget
+        self.topic9noteBook = ttk.Notebook(self.topic9Frame)
+
+        self.topic9tab1 = Frame(self.topic9noteBook)
+        self.topic9tab2 = Frame(self.topic9noteBook)
+
+        self.topic9noteBook.add(self.topic9tab1, text='Topic')
+        self.topic9noteBook.add(self.topic9tab2, text='Sample Code Snippet')
+
+        self.topic9noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
+
+        Label(self.topic9tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic9tab2, text='"Canvas" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic9TxtWidget = Text(self.topic9tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic9TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
+        with open('topic9_snippet.txt') as topic9:
+            self.topic9snipTxt = topic9.read()
+            # print(self.topic0snipTxt)
+        
 
-        ############### CANVAS WIDGET ###############
-        # self.topic10Frame = 'CANVAS WIDGET'
+        self.topic9TxtWidget.insert(END, self.topic9snipTxt)
+        self.topic9TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic9tab2RunBtn = Button(self.topic9tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 9'))
+        self.topic9tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+        ############### LISTBOX WIDGET ###############
+        # self.topic10Frame = 'LISTBOX WIDGET'
         self.topic10Frame = Frame(self.main)
         # self.topic10Frame.grid(row=0, column=0)
 
@@ -704,7 +950,7 @@ class Application:
 
 
         self.topic10FrameTitle = Label(self.topic10Frame,
-                                        text='Canvas widget',
+                                        text='Listbox widget',
                                         font=('Helvetica', '12'))
         self.topic10FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -720,11 +966,33 @@ class Application:
         self.topic10noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic10tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic10tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic10tab2, text='"Listbox" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
 
 
-        ############### MENU WIDGET ###############
-        # self.topic11Frame = 'MENU WIDGET'
+        #create text widget to display code snippet
+        self.topic10TxtWidget = Text(self.topic10tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic10TxtWidget.grid(row=1, column=0, sticky='nsew')
+
+
+        with open('topic10_snippet.txt') as topic10:
+            self.topic10snipTxt = topic10.read()
+            # print(self.topic0snipTxt)
+        
+
+        self.topic10TxtWidget.insert(END, self.topic10snipTxt)
+        self.topic10TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic10tab2RunBtn = Button(self.topic10tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 10'))
+        self.topic10tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+
+        ############### SCROLLBAR WIDGET ###############
+        # self.topic11Frame = 'SCROLLBAR WIDGET'
         self.topic11Frame = Frame(self.main)
         # self.topic11Frame.grid(row=0, column=0)
 
@@ -738,7 +1006,7 @@ class Application:
 
 
         self.topic11FrameTitle = Label(self.topic11Frame,
-                                        text='Menu widget',
+                                        text='Scrollbar widget',
                                         font=('Helvetica', '12'))
         self.topic11FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -754,12 +1022,31 @@ class Application:
         self.topic11noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic11tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic11tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic11tab2, text='"Scrollbar" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic11TxtWidget = Text(self.topic11tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic11TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
+        with open('topic11_snippet.txt') as topic11:
+            self.topic11snipTxt = topic11.read()
+            # print(self.topic0snipTxt)
+        
 
-        ############### LISTBOX WIDGET ###############
-        # self.topic12Frame = 'LISTBOX WIDGET'
+        self.topic11TxtWidget.insert(END, self.topic11snipTxt)
+        self.topic11TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic11tab2RunBtn = Button(self.topic11tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 11'))
+        self.topic11tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+        ############### NOTEBOOK WIDGET ###############
+        # self.topic12Frame = 'NOTEBOOK WIDGET'
         self.topic12Frame = Frame(self.main)
         # self.topic12Frame.grid(row=0, column=0)
 
@@ -773,7 +1060,7 @@ class Application:
 
 
         self.topic12FrameTitle = Label(self.topic12Frame,
-                                        text='Listbox widget',
+                                        text='Notebook widget',
                                         font=('Helvetica', '12'))
         self.topic12FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -789,12 +1076,31 @@ class Application:
         self.topic12noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic12tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic12tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic12tab2, text='"Notebook" widget sample code snippet.').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic12TxtWidget = Text(self.topic12tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic12TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
+        with open('topic12_snippet.txt') as topic12:
+            self.topic12snipTxt = topic12.read()
+            # print(self.topic0snipTxt)
+        
 
-        ############### SCROLLBAR WIDGET ###############
-        # self.topic13Frame = 'SCROLLBAR WIDGET'
+        self.topic12TxtWidget.insert(END, self.topic12snipTxt)
+        self.topic12TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic12tab2RunBtn = Button(self.topic12tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 12'))
+        self.topic12tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+
+        ############### FILE I/O ###############
+        # self.topic13Frame = 'FILE I/O'
         self.topic13Frame = Frame(self.main)
         # self.topic13Frame.grid(row=0, column=0)
 
@@ -808,7 +1114,7 @@ class Application:
 
 
         self.topic13FrameTitle = Label(self.topic13Frame,
-                                        text='Scrollbar widget',
+                                        text='FILE I/O',
                                         font=('Helvetica', '12'))
         self.topic13FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -816,19 +1122,20 @@ class Application:
         self.topic13noteBook = ttk.Notebook(self.topic13Frame)
 
         self.topic13tab1 = Frame(self.topic13noteBook)
-        self.topic13tab2 = Frame(self.topic13noteBook)
+        # self.topic13tab2 = Frame(self.topic13noteBook)
 
         self.topic13noteBook.add(self.topic13tab1, text='Topic')
-        self.topic13noteBook.add(self.topic13tab2, text='Sample Code Snippet')
+        # self.topic13noteBook.add(self.topic13tab2, text='Sample Code Snippet')
 
         self.topic13noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic13tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic13tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        # Label(self.topic13tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
 
 
-        ############### NOTEBOOK WIDGET ###############
-        # self.topic14Frame = 'NOTEBOOK WIDGET'
+
+        ############### A SIMPLE EMPLOYEE DATA MANAGEMENT SYSTEM ###############
+        # self.topic14Frame = 'A SIMPLE EMPLOYEE DATA MANAGEMENT SYSTEM'
         self.topic14Frame = Frame(self.main)
         # self.topic14Frame.grid(row=0, column=0)
 
@@ -842,7 +1149,7 @@ class Application:
 
 
         self.topic14FrameTitle = Label(self.topic14Frame,
-                                        text='Notebook widget',
+                                        text='A simple employee data managemet system',
                                         font=('Helvetica', '12'))
         self.topic14FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -858,12 +1165,31 @@ class Application:
         self.topic14noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic14tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic14tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic14tab2, text='A simple employee data management system').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic14TxtWidget = Text(self.topic14tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic14TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
+        with open('topic14_snippet.txt') as topic14:
+            self.topic14snipTxt = topic14.read()
+            # print(self.topic0snipTxt)
+        
 
-        ############### FILE I/O ###############
-        # self.topic15Frame = 'FILE I/O'
+        self.topic14TxtWidget.insert(END, self.topic14snipTxt)
+        self.topic14TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic14tab2RunBtn = Button(self.topic14tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 14'))
+        self.topic14tab2RunBtn.grid(row=2, column=0, sticky='nsew')
+
+        
+        ############### A SIMPLE CALCULATOR APPLICATION ###############
+        # self.topic15Frame = 'A SIMPLE CALCULATOR APPLICATION'
         self.topic15Frame = Frame(self.main)
         # self.topic15Frame.grid(row=0, column=0)
 
@@ -877,7 +1203,7 @@ class Application:
 
 
         self.topic15FrameTitle = Label(self.topic15Frame,
-                                        text='FILE I/O',
+                                        text='A simple calculator application',
                                         font=('Helvetica', '12'))
         self.topic15FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
@@ -893,76 +1219,71 @@ class Application:
         self.topic15noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
 
         Label(self.topic15tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic15tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        Label(self.topic15tab2, text='Simple Calculator Application').grid(row=0, column=0, columnspan=7)
+
+        #create text widget to display code snippet
+        self.topic15TxtWidget = Text(self.topic15tab2,
+                                        font=('Helvetica', '10'),
+                                        state='normal')
+        self.topic15TxtWidget.grid(row=1, column=0, sticky='nsew')
 
 
-
-        ############### A SIMPLE EMPLOYEE DATA MANAGEMENT SYSTEM ###############
-        # self.topic16Frame = 'A SIMPLE EMPLOYEE DATA MANAGEMENT SYSTEM'
-        self.topic16Frame = Frame(self.main)
-        # self.topic16Frame.grid(row=0, column=0)
-
-
-        self.goBackBtn16 = Button(self.topic16Frame,
-                                    text='Back to topics',
-                                    command=lambda: self.showFrame(self.topicsFrame))
-        self.goBackBtn16.bind('<Enter>', self.btn_on_enter)
-        self.goBackBtn16.bind('<Leave>', self.btn_on_leave)                                    
-        self.goBackBtn16.grid(row=0, column=0, columnspan=2, ipadx=5, padx=5, pady=7)
-
-
-        self.topic16FrameTitle = Label(self.topic16Frame,
-                                        text='A simple employee data managemet system',
-                                        font=('Helvetica', '12'))
-        self.topic16FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
-
-        #create notebook widget
-        self.topic16noteBook = ttk.Notebook(self.topic16Frame)
-
-        self.topic16tab1 = Frame(self.topic16noteBook)
-        self.topic16tab2 = Frame(self.topic16noteBook)
-
-        self.topic16noteBook.add(self.topic16tab1, text='Topic')
-        self.topic16noteBook.add(self.topic16tab2, text='Sample Code Snippet')
-
-        self.topic16noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
-
-        Label(self.topic16tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic16tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
-
+        with open('topic15_snippet.txt') as topic15:
+            self.topic15snipTxt = topic15.read()
+            # print(self.topic0snipTxt)
         
-        ############### A SIMPLE CALCULATOR APPLICATION ###############
-        # self.topic17Frame = 'A SIMPLE CALCULATOR APPLICATION'
-        self.topic17Frame = Frame(self.main)
-        # self.topic17Frame.grid(row=0, column=0)
+
+        self.topic15TxtWidget.insert(END, self.topic15snipTxt)
+        self.topic15TxtWidget.config(state='disabled', height=11, width=68, wrap='word')
+
+        self.topic15tab2RunBtn = Button(self.topic15tab2,
+                                        text='Run code snippet',
+                                        command=lambda: self.run_snippet('Topic 15'))
+        self.topic15tab2RunBtn.grid(row=2, column=0, sticky='nsew')
 
 
-        self.goBackBtn17 = Button(self.topic17Frame,
-                                    text='Back to topics',
-                                    command=lambda: self.showFrame(self.topicsFrame))
-        self.goBackBtn17.bind('<Enter>', self.btn_on_enter)
-        self.goBackBtn17.bind('<Leave>', self.btn_on_leave)                                    
-        self.goBackBtn17.grid(row=0, column=0, columnspan=2, ipadx=5, padx=5, pady=7)
+    #create a function that can display hyperlinks and redirects user to youtube tkinter tutorials
 
 
-        self.topic17FrameTitle = Label(self.topic17Frame,
-                                        text='A simple calculator application',
-                                        font=('Helvetica', '12'))
-        self.topic17FrameTitle.grid(row=0, column=1, columnspan=6, sticky='nsew', padx=75)
 
-        #create notebook widget
-        self.topic17noteBook = ttk.Notebook(self.topic17Frame)
+    #create function to run separate py files tkinter
+    def run_snippet(self, topic):
+        if topic == 'Topic 0':
+            topic0_snip.run()
+        elif topic == 'Topic 1':
+            topic1_snip.run()
+        elif topic == 'Topic 2':
+            topic2_snip.run()
+        elif topic == 'Topic 3':
+            topic3_snip.run()
+        elif topic == 'Topic 4':
+            topic4_snip.run()
+        elif topic == 'Topic 5':
+            topic5_snip.run()
+        elif topic == 'Topic 6':
+            topic6_snip.run()
+        elif topic == 'Topic 7':
+            topic7_snip.run()
+        elif topic == 'Topic 8':
+            topic8_snip.run()
+        elif topic == 'Topic 9':
+            topic9_snip.run()
+        elif topic == 'Topic 10':
+            topic10_snip.run()
+        elif topic == 'Topic 11':
+            topic11_snip.run()
+        elif topic == 'Topic 12':
+            topic12_snip.run()
 
-        self.topic17tab1 = Frame(self.topic17noteBook)
-        self.topic17tab2 = Frame(self.topic17noteBook)
+        #walay snippet sa topic 13 FILE I/O 
 
-        self.topic17noteBook.add(self.topic17tab1, text='Topic')
-        self.topic17noteBook.add(self.topic17tab2, text='Sample Code Snippet')
+        elif topic == 'Topic 14':
+            topic14_snip.run()
+        elif topic == 'Topic 15':
+            topic15_snip.run()
 
-        self.topic17noteBook.grid(row=1, column=0, columnspan=7, sticky='nsew', padx=20, pady=5)
-
-        Label(self.topic17tab1, text='This is tab 1', width=67, height=16).grid(row=0, column=0)
-        Label(self.topic17tab2, text='This is tab 2', width=67, height=16).grid(row=0, column=0)
+        else:
+            print('None')
 
 
 
